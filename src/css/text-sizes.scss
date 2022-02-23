@@ -60,3 +60,10 @@ $text-size-options: (
     }
   }
 }
+
+//fixed text size classes
+@each $text-size in $text-sizes {
+  .text-size-fixed-#{$text-size} {
+    font-size: #{$text-size}px;
+  }
+}
