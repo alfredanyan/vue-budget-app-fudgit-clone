@@ -1,0 +1,28 @@
+@use "sass:map";
+
+$themes: (
+  "orange": (
+    primary: #ff8c00,
+  ),
+  "orange-light": (),
+  "blue": (),
+);
+
+@each $theme, $colors in $themes {
+  [data-theme="#{$theme}"] {
+    @each $name, $color in $colors {
+      .bg-#{$name} {
+        background: $color !important;
+      }
+      .text-#{$name} {
+        color: $color !important;
+      }
+    }
+
+    // quasar component overrides
+    .q-field__control,
+    .q-item--active {
+      color: map.get($colors, primary) !important;
+    }
+  }
+}
